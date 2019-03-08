@@ -2,11 +2,51 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Form extends Component {
-    // Renders the entire app on the DOM
+    state = {
+        name: '',
+        date: 0,
+        tag: '',
+        git: '',
+        web: '',
+        description: '',
+    };
+
+    onChange = (property) => (event) => {
+        event.preventDefault();
+        this.setState({
+            ...this.state,
+            [property]: event.target.value,
+        });
+    };
+
+    handleClick = () => {
+
+    };
+
     render() {
       return (
         <div>
-            Form
+            <h2>Add a Project</h2>
+            <input type="text" placeholder="Enter the name" value={this.state.name} onChange={this.onChange('name')} />
+
+            <input type="date" value={this.state.date} onChange={this.onChange('date')} />
+
+            <select value={this.state.name} onChange={this.onChange('tag')}>
+                <option value="" disabled>Select</option>
+                <option value="1">React</option>
+                <option value="2">JQuery</option>
+                <option value="3">Node</option>
+                <option value="4">SQL</option>
+                <option value="5">Redux</option>
+                <option value="6">HTML</option>
+            </select>
+
+            <input type="text" placeholder="GitHub URL" value={this.state.git} onChange={this.onChange('git')} />
+
+            <input type="text" placeholder="Web URL" value={this.state.web} onChange={this.onChange('web')} />
+
+            <textarea placeholder="Description" value={this.state.description} onChange={this.onChange('description')} /><br/>
+            <button onClick={this.handleClick}>Submit</button>
         </div>
       );
     }

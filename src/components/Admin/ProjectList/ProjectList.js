@@ -3,7 +3,15 @@ import ProjectItem from '../ProjectItem/ProjectItem'
 import { connect } from 'react-redux';
 
 class ProjectList extends Component {
-    // Renders the entire app on the DOM
+
+// componentDidMount() {
+//     this.getProjectList();
+// };
+
+getProjectList = () => {
+    this.props.dispatch({ type: 'FETCH_PROJECT_LIST'});
+};
+
     render() {
       return (
         <div>
