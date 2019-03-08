@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ClientList extends Component {
+class ClientItem extends Component {
     // Renders the entire app on the DOM
     render() {
       return (
@@ -11,4 +11,4 @@ class ClientList extends Component {
     }
   }
   
-  export default ClientList;
+  export default ClientItem;
