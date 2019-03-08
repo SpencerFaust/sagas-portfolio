@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Form extends Component {
     // Renders the entire app on the DOM
@@ -10,5 +11,9 @@ class Form extends Component {
       );
     }
   }
+
+  const mapReduxToProps = (reduxState) => {
+      return reduxState;
+  };
   
-  export default Form;
+  export default connect(mapReduxToProps)(Form);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class ProjectItem extends Component {
     // Renders the entire app on the DOM
@@ -10,5 +11,9 @@ class ProjectItem extends Component {
       );
     }
   }
+
+  const mapReduxToProps = (reduxState) => {
+      return reduxState;
+  };
   
-  export default ProjectItem;
+  export default connect(mapReduxToProps)(ProjectItem);

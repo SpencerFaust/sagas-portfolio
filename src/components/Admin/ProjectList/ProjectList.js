@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProjectItem from '../ProjectItem/ProjectItem'
+import { connect } from 'react-redux';
 
 class ProjectList extends Component {
     // Renders the entire app on the DOM
@@ -11,5 +12,5 @@ class ProjectList extends Component {
       );
     }
   }
-  
-  export default ProjectList;
+
+  export default connect()(ProjectList)
