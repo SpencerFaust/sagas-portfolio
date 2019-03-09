@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class ProjectItem extends Component {
-    // Renders the entire app on the DOM
+
+    handleDelete = () => {
+        this.props.dispatch({ type: 'DELETE_PROJECT_LIST', payload: this.props.project.id});
+    };
+
     render() {
       return (
-        <div>
-            Project Item
-        </div>
-      );
+        <tr>
+            <td>{this.props.project.name}</td>
+            <td><button onClick={this.handleDelete}>Delete</button></td>
+        </tr>
+      )
     }
   }
 

@@ -7,11 +7,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
-
-// Create the rootSaga generator function
-function* rootSaga() {
-
-}
+import sagaWatcher from './Sagas/Sagas';
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -20,6 +16,7 @@ const sagaMiddleware = createSagaMiddleware();
 const projects = (state = [], action) => {
     switch (action.type) {
         case 'SET_PROJECTS':
+            console.log('SET reducer changed to:', action.payload);
             return action.payload;
         default:
             return state;
@@ -47,7 +44,7 @@ const storeInstance = createStore(
 );
 
 // Pass rootSaga into our sagaMiddleware
-sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(sagaWatcher);
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
     document.getElementById('root'));

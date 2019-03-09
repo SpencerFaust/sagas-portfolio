@@ -4,19 +4,13 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  pool.query()
-    .then((result) => { res.send(result.rows); })
+  pool.query('SELECT * FROM projects')
+    .then((result) => { 
+      console.log('DB response:', result.rows);
+      res.send(result.rows); 
+    })
     .catch((err) => {
-      console.log('Error completing SELECT plant query', err);
-      res.sendStatus(500);
-    });
-});
-
-router.get('/details/:id', (req, res) => {
-  pool.query()
-    .then((result) => { res.send(result.rows); })
-    .catch((err) => {
-      console.log('Error completing SELECT plant query', err);
+      console.log('Error completing SELECT project query', err);
       res.sendStatus(500);
     });
 });
@@ -30,18 +24,9 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/', (req, res) => {
-  const updatedPlant = req.body;
-  pool.query()
-    .then(() => { res.sendStatus(200); })
-    .catch((err) => {
-      console.log('Error completing SELECT plant query', err);
-      res.sendStatus(500);
-    });
-});
-
 router.delete('/:id', (req, res) => {
-  pool.query()
+  console.log('Delete Server hit:', req.params.id);
+  pool.query('DELETE FROM projects WHERE id=$1', [req.params.id])
     .then(() => { res.sendStatus(200); })
     .catch((err) => {
       console.log('Error completing SELECT plant query', err);

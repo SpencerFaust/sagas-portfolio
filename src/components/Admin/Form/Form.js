@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class Form extends Component {
     state = {
         name: '',
-        date: 0,
+        date: '',
         tag: '',
         git: '',
         web: '',
