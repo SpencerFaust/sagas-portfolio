@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class Form extends Component {
     state = {
@@ -20,7 +21,11 @@ class Form extends Component {
     };
 
     handleClick = () => {
+        this.props.dispatch({ type: 'ADD_TO_PROJECT_LIST', payload: this.state})
+    };
 
+    routeToClient = () => {
+        this.props.history.push('/');
     };
 
     render() {
@@ -47,6 +52,7 @@ class Form extends Component {
 
             <textarea placeholder="Description" value={this.state.description} onChange={this.onChange('description')} /><br/>
             <button onClick={this.handleClick}>Submit</button>
+            <button onClick={this.routeToClient}>View Client Side</button>
         </div>
       );
     }
@@ -56,4 +62,4 @@ class Form extends Component {
       return reduxState;
   };
   
-  export default connect(mapReduxToProps)(Form);
+  export default connect(mapReduxToProps)(withRouter(Form));
