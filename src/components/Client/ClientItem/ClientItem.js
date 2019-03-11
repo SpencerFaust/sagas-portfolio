@@ -42,7 +42,7 @@ function ClientItem(props) {
         <a href={props.project.github} target="_blank"><Button size="small" color="primary" >
           GitHub
         </Button></a>
-        <a href={props.project.web} target="_blank"><Button size="small" color="primary" >
+        <a href={props.project.website} target="_blank"><Button size="small" color="primary" >
           Web Page
         </Button></a>
       </CardActions>

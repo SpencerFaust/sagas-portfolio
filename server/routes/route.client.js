@@ -16,8 +16,8 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  pool.query(`INSERT INTO "projects" ("name", "description", "thumbnail", "website", "github", "date_completed")
-  VALUES ($1, $2, $3, $4, $5, $6);`, [req.body.name, req.body.description, req.body.thumbnail, req.body.website, req.body.git, req.body.date_completed])
+  pool.query(`INSERT INTO "projects" ("name", "description", "thumbnail", "website", "github", "date_completed", "tag_id")
+  VALUES ($1, $2, $3, $4, $5, $6, $7);`, [req.body.name, req.body.description, req.body.thumbnail, req.body.website, req.body.github, req.body.date_completed, req.body.tag_id])
     .then(() => { res.sendStatus(201); })
     .catch((err) => {
       console.log('Error completing SELECT plant query', err);

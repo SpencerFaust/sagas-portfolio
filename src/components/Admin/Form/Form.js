@@ -5,11 +5,12 @@ import { withRouter } from 'react-router-dom';
 class Form extends Component {
     state = {
         name: '',
-        date: '',
-        tag: '',
-        git: '',
-        web: '',
+        date_completed: '',
+        tag_id: '',
+        github: '',
+        website: '',
         description: '',
+        thumbnail: '',
     };
 
     onChange = (property) => (event) => {
@@ -34,9 +35,9 @@ class Form extends Component {
             <h2>Add a Project</h2>
             <input type="text" placeholder="Enter the name" value={this.state.name} onChange={this.onChange('name')} />
 
-            <input type="date" value={this.state.date} onChange={this.onChange('date')} />
+            <input type="date" value={this.state.date} onChange={this.onChange('date_completed')} />
 
-            <select value={this.state.name} onChange={this.onChange('tag')}>
+            <select value={this.state.name} onChange={this.onChange('tag_id')}>
                 <option value="" disabled>Select</option>
                 <option value="1">React</option>
                 <option value="2">JQuery</option>
@@ -46,9 +47,10 @@ class Form extends Component {
                 <option value="6">HTML</option>
             </select>
 
-            <input type="text" placeholder="GitHub URL" value={this.state.git} onChange={this.onChange('git')} />
+            <input type="text" placeholder="Image tag" value={this.state.git} onChange={this.onChange('thumbnail')} />
+            <input type="text" placeholder="GitHub URL" value={this.state.git} onChange={this.onChange('github')} />
 
-            <input type="text" placeholder="Web URL (optional)" value={this.state.web} onChange={this.onChange('web')} />
+            <input type="text" placeholder="Web URL (optional)" value={this.state.web} onChange={this.onChange('website')} />
 
             <textarea placeholder="Description" value={this.state.description} onChange={this.onChange('description')} /><br/>
             <button onClick={this.handleClick}>Submit</button>
