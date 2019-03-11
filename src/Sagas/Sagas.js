@@ -14,20 +14,24 @@ function* fetchProjectList(action) {
 function* deleteProject(action) {
     try {
       console.log('delete action', action);
+      alert('Your project has been successfully deleted.')
       yield axios.delete('/projectlist/' + action.payload);
       yield put({ type: 'FETCH_PROJECT_LIST' });
     } catch (error) {
       console.log('error with');
+      alert('An error has occurred.');
     };
   };
 
   function* addProject(action) {
     try {
         console.log('add action', action);
+        alert('Your project has been successfully added.')
         yield axios.post('/projectlist', action.payload);
         yield put({ type: 'FETCH_PROJECT_LIST'});
     } catch (error) {
         console.log('SAGA POST error:', error);
+        alert('An error has occurred.');
     };
   };
 

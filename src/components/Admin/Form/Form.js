@@ -48,7 +48,7 @@ class Form extends Component {
 
             <input type="text" placeholder="GitHub URL" value={this.state.git} onChange={this.onChange('git')} />
 
-            <input type="text" placeholder="Web URL" value={this.state.web} onChange={this.onChange('web')} />
+            <input type="text" placeholder="Web URL (optional)" value={this.state.web} onChange={this.onChange('web')} />
 
             <textarea placeholder="Description" value={this.state.description} onChange={this.onChange('description')} /><br/>
             <button onClick={this.handleClick}>Submit</button>
