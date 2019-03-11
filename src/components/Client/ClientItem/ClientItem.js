@@ -10,7 +10,7 @@ class ClientList extends Component {
         <div className="image">
           
         </div>
-         
+         <img src='./garden.png' />
        </div>
       )
     }
