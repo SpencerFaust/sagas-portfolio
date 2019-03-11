@@ -16,19 +16,9 @@ getProjectList = () => {
     render() {
       return (
         <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.props.reduxState.projects.map(project => 
-                        <ClientItem project={project} key={project.id}/>
-                    )} 
-                </tbody>
-            </table> 
+          {this.props.reduxState.projects.map(project => 
+              <ClientItem project={project} key={project.id}/>
+          )} 
         </div>
       )
     }

@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-  
-  class ClientItem extends Component {
-  
-      render() {
-        return (
-          <tr>
-              <td>{this.props.project.name}</td>
-          </tr>
-        )
-      }
+import './ClientItem.css';
+
+class ClientList extends Component {
+
+    render() {
+      return (
+       <div className="projectDiv">
+        <div className="image">
+          
+        </div>
+         
+       </div>
+      )
     }
+  }
+
+  const mapReduxToProps = (reduxState) => {
+      return reduxState;
+  };
   
-    const mapReduxToProps = (reduxState) => {
-        return reduxState;
-    };
-    
-    export default connect(mapReduxToProps)(ClientItem);
+  export default connect(mapReduxToProps)(ClientList);
